@@ -11,10 +11,10 @@ describe('Login Functionalities', () => {
 		cy.get('[data-ui-id="message-success"]').should('be.visible')
     
 		cy.get('.showcart > .counter').children().then(function(cart){
-			debugger
+		
 		})
 		cy.wait('@addToCart').then(function(addtocart){
-			debugger
+		
 		})
 	})
 })
