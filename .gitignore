@@ -3,3 +3,4 @@ NODE_MODULES
 **/videos/
 *.jpg
 *.png
+*.env
