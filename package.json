@@ -1,0 +1,17 @@
+{
+  "name": "cypress-example-of-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Adrian Maciuc",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.11.0",
+    "dotenv": "^16.0.3",
+    "mochawesome": "^7.1.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0"
+  }
+}

@@ -1,0 +1,5 @@
+NODE_MODULES
+*.mp4
+**/videos/
+*.jpg
+*.png
