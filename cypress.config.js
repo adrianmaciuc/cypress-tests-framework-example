@@ -26,7 +26,7 @@ module.exports = defineConfig({
 	viewportWidth: 1280,
 	viewportHeight: 720,
 	videoUploadOnPasses: false,
-	video: true,
+	video: false,
 	retries: 1,
 	scrollBehavior: 'center',
 
