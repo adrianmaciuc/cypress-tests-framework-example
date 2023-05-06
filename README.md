@@ -6,7 +6,7 @@ This project provides an example of how to create a Cypress-based testing framew
 
 ## Specifications
 
-All the specs in this repository are written to cover the aforementioned website exclusively.
+All the specs in this repository are written to cover this testing website exclusively.
 
 ## Testing Approach
 
