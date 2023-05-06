@@ -21,13 +21,39 @@ export const SELECTORS = {
 		colorOrange: '#option-label-color-93-item-56',
 		addToCartBtn: '#product-addtocart-button',
 		addToCartSuccessMsg: '[data-ui-id="message-success"]',
+
+	},
+	COMMON: {
+		nextBtn : '[data-role="opc-continue"]'
 	},
 	OTHER : {
 		miniCart: '[data-block="minicart"]', 
 		miniCartCounter: '[data-block="minicart"] .counter .counter-number',
+		miniCartSubTotal: '.subtotal .price-container',
+		miniCartDropDownProceedToCheckout: '[id="top-cart-btn-checkout"]',
+		loadingSpinner: '[title="Loading..."]',
+	},
+	SHIPPING: {
+		email: '#shipping #customer-email',
+		firstName: '[name="firstname"]',
+		lastName: '[name="lastname"]',
+		streetAddress: '[name="street[0]"]',
+		city: '[name="city"]',
+		stateSelect: '[name="shippingAddress.region_id"] > div > select',
+		country: '[name="country_id"]',
+		phone: '[name="telephone"]',
+		postCode: '[name="postcode"]'
+	},
+	PAYMENT: {
+		shippingDetails: '.shipping-information-content',
+		placeOrderBtn: '[title="Place Order"]',
+	},
+	SUCCESS_PURCHASE : {
+		createAccountAreaText: '[id="registration"] p'
 	},
 	HTML : {
 		a: 'a',
-
+		inputRadio: 'input.radio',
+		typeCheckbox: '[type="checkbox"]'
 	}
 }

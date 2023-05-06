@@ -1,13 +1,33 @@
 import { SELECTORS } from '../support/selectors'
-import { faker } from '../support'
+import { faker } from '@faker-js/faker/locale/ro'
+
 const HOME_PAGE = SELECTORS.HOME_PAGE
 const PRODUCT = SELECTORS.PRODUCT
 const OTHER = SELECTORS.OTHER
+const SHIPPING = SELECTORS.SHIPPING
+const COMMON = SELECTORS.COMMON
+const HTML = SELECTORS.HTML
+const PAYMENT = SELECTORS.PAYMENT
+const SUCCESS = SELECTORS.SUCCESS_PURCHASE
+
+// test data
+let email = faker.internet.email()
+let firstName = faker.name.firstName()
+let lastName = faker.name.lastName()
+let streetAddress = faker.address.streetAddress()
+let city = faker.address.city()
+let country = 'Romania'
+let postCode = faker.address.zipCode()
+let state = 'Cluj'
+let phone = faker.phone.number()
+// end of test data
 
 
 describe('Purchase functionalities', () => {
-	it('Add one item to cart ', () => {
+	it('Add one item to cart ',{retries: 0}, () => {
 		cy.visit('/')
+
+		// Open first product from home page
 		cy.intercept('GET', 'https://magento.softwaretestingboard.com/customer/section/load/**').as('addToCart')
 		cy.get(HOME_PAGE.productItemInfo).first().click()
 		cy.get(PRODUCT.sizeS).click()
@@ -23,19 +43,43 @@ describe('Purchase functionalities', () => {
 		})
 
 		cy.get(OTHER.miniCart).click()
-		cy.get('[id="top-cart-btn-checkout"]').click()
+		cy.get(OTHER.miniCartSubTotal).should('be.visible')
+		cy.get(OTHER.miniCartDropDownProceedToCheckout).click()
 
-		cy.url().should('include', 'checkout/')
-		cy.get('#shipping #customer-email').type(faker.internet.email())
-		cy.get('[name="firstname"]').type(faker.name.firstName())
-		cy.get('[name="lasttname"]').type(faker.name.lastName())
-		cy.get('[name="street[0]"]').type(faker.address.streetAddress())
-		cy.get('[name="city"]').type(faker.address.city())
-		cy.get('[name="country_id"]').select('Romania')
-		// once you change the country the will render again to populate State/Province. We wait for the loader to finish
-		cy.get('[title="Loading..."]').should('not.exist')
+		// fill in the info for shipping
+		cy.url().should('include', 'checkout/#shipping')
+		cy.get(SHIPPING.email).type(email)
+		cy.get(SHIPPING.firstName).type(firstName)
+		cy.get(SHIPPING.lastName).type(lastName)
+		cy.get(SHIPPING.streetAddress).type(streetAddress)
+		cy.get(SHIPPING.city).type(city)
+		cy.get(SHIPPING.country).select(country)
+		// once you change the country the page will render again to populate State/Province. We wait for the loader to finish
+		cy.get(OTHER.loadingSpinner).should('not.exist')
 
-		cy.get('[name="shippingAddress.region_id"] > div > select').select('Cluj')
-		
+		cy.get(SHIPPING.postCode).type(postCode)
+		cy.get(OTHER.loadingSpinner).should('not.exist')
+		cy.get(SHIPPING.stateSelect).select(state)
+		cy.get(SHIPPING.phone).type(phone)
+		cy.get(HTML.inputRadio).first().click()
+		cy.get(COMMON.nextBtn).click()
+
+		// assert all the values entered at shipping that are correctly stored
+		cy.url().should('include', '#payment')
+		cy.get(PAYMENT.shippingDetails).first().should('be.visible').then(function(addressDetails){
+			expect(addressDetails[0].innerText).include(firstName)
+			expect(addressDetails[0].innerText).include(lastName)
+			expect(addressDetails[0].innerText).include(streetAddress)
+			expect(addressDetails[0].innerText).include(city)
+			expect(addressDetails[0].innerText).include(country)
+			expect(addressDetails[0].innerText).include(postCode)
+			expect(addressDetails[0].innerText).include(state)
+			expect(addressDetails[0].innerText).include(phone)
+		})
+		cy.get(PAYMENT.placeOrderBtn).should('be.visible').click()
+
+		// assert email and registration pops up
+		cy.url().should('include', 'checkout/onepage/success/')
+		cy.get(SUCCESS.createAccountAreaText).invoke('text').should('include', email)
 	})
 })
