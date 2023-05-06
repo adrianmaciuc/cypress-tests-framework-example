@@ -1,7 +1,7 @@
 import { SELECTORS } from '../support/selectors'
 
-describe('Login Functionalities', () => {
-	it('Happy path to login', () => {
+describe('Purchase functionalities', () => {
+	it('Add one item to cart ', () => {
 		cy.visit('/')
 		cy.intercept('GET', 'https://magento.softwaretestingboard.com/customer/section/load/**').as('addToCart')
 		cy.get('.product-item-info').first().click()
