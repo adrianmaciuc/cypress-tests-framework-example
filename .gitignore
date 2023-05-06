@@ -1,6 +1,7 @@
 NODE_MODULES/
 reports/
 videos/
+screenshots/
 *.mp4
 *.jpg
 *.png
