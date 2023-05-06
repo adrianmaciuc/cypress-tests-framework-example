@@ -1,0 +1,11 @@
+name: ci
+on: [push]
+jobs:
+  single:
+    # https://github.com/bahmutov/cypress-workflows
+    uses: bahmutov/cypress-workflows/.github/workflows/standard.yml@v1
+
+  tests:
+    uses: bahmutov/cypress-workflows/.github/workflows/split.yml@v1
+    with:
+      n: 2
