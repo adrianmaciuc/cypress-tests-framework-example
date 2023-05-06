@@ -1,6 +1,6 @@
 import { SELECTORS } from '../support/selectors'
 const HOME_PAGE = SELECTORS.HOME_PAGE
-const HTML = SELECTORS.HTML
+const NAVBAR = SELECTORS.NAVBAR
 
 describe('Landing page', () => {
 	it('Verify basic components of home page are loaded and links are crawlable', () => {
@@ -25,7 +25,7 @@ describe('Landing page', () => {
 			cy.wait(3500)
 		})
 
-		cy.get(HOME_PAGE.NAVBAR.navbarLinks).each(function(item){
+		cy.get(NAVBAR.navbarLinks).each(function(item){
 			cy.request(item[0].href).its('status').should('eq', 200)
 			cy.wait(3500)
 		})
