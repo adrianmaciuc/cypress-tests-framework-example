@@ -8,9 +8,12 @@ export const SELECTORS = {
 			gear: '[id="ui-id-6"]',
 			training: '[id="ui-id-7"]',
 			sale: '[id="ui-id-8"]',
+			navbarLinks: '.navigation .level-top > a',
 		},
 		productItem : '.product-item',
-		blocksPromoLinks : '.blocks-promo a'
+		blocksPromoLinks : '.blocks-promo a',
+		productItemPhoto: '.product-item-photo',
+		footerLinks: '.footer li a',
 	},
 	OTHER : {
 	},
