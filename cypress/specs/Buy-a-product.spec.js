@@ -1,7 +1,7 @@
 import { SELECTORS } from '../support/selectors'
 import { faker } from '@faker-js/faker/locale/ro'
 
-const { HOME_PAGE, PRODUCT, OTHER, SHIPPING, COMMON, HTML, PAYMENT, SUCCESS } = SELECTORS
+const { HOME_PAGE, PRODUCT, OTHER, SHIPPING, COMMON, HTML, PAYMENT, SUCCESS_PURCHASE } = SELECTORS
 
 // test data
 let email = faker.internet.email()
@@ -73,6 +73,6 @@ describe('Purchase functionalities', () => {
 
 		// assert email and registration pops up
 		cy.url().should('include', 'checkout/onepage/success/')
-		cy.get(SUCCESS.createAccountAreaText).invoke('text').should('include', email)
+		cy.get(SUCCESS_PURCHASE.createAccountAreaText).invoke('text').should('include', email)
 	})
 })
