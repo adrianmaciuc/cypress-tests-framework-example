@@ -1,14 +1,7 @@
 import { SELECTORS } from '../support/selectors'
 import { faker } from '@faker-js/faker/locale/ro'
 
-const HOME_PAGE = SELECTORS.HOME_PAGE
-const PRODUCT = SELECTORS.PRODUCT
-const OTHER = SELECTORS.OTHER
-const SHIPPING = SELECTORS.SHIPPING
-const COMMON = SELECTORS.COMMON
-const HTML = SELECTORS.HTML
-const PAYMENT = SELECTORS.PAYMENT
-const SUCCESS = SELECTORS.SUCCESS_PURCHASE
+const { HOME_PAGE, PRODUCT, OTHER, SHIPPING, COMMON, HTML, PAYMENT, SUCCESS } = SELECTORS
 
 // test data
 let email = faker.internet.email()
