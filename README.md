@@ -1,5 +1,7 @@
 # Cypress Tests Framework Example
 
+by Adrian Maciuc - https://www.martioli.com
+
 ## Overview
 
 This project provides an example of how to create a Cypress-based testing framework from scratch for an e-commerce website. The aim is to provide end-to-end test coverage for https://magento.softwaretestingboard.com/.

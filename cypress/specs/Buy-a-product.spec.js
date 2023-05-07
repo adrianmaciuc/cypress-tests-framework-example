@@ -17,7 +17,7 @@ let phone = faker.phone.number()
 
 
 describe('Purchase functionalities', () => {
-	it('Add one item to cart ',{retries: 0}, () => {
+	it('Add one item to cart and complete the order',{retries: 0}, () => {
 		cy.visit('/')
 
 		// Open first product from home page
