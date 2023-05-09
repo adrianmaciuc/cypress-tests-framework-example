@@ -1,7 +1,7 @@
 const { defineConfig } = require('cypress')
 require('dotenv').config()
 
-const baseUrl = process.env.baseUrl || 'https://google.com'
+const baseUrl = process.env.baseUrl || 'https://magento.softwaretestingboard.com/'
 
 module.exports = defineConfig({
 	e2e: {
