@@ -10,18 +10,24 @@ export const SELECTORS = {
 		navbarLinks: '.navigation .level-top > a',
 	},
 	HOME_PAGE: {
-		productItem : '.product-item',
 		blocksPromoLinks : '.blocks-promo a',
-		productItemPhoto: '.product-item-photo',
-		productItemInfo: '.product-item-info',
 		footerLinks: '.footer li a',
 	},
 	PRODUCT : {
+		productItem : '.product-item',
+		productItemPhoto: '.product-item-photo',
+		productItemInfo: '.product-item-info',
 		sizeS: '#option-label-size-143-item-167',
 		colorOrange: '#option-label-color-93-item-56',
 		addToCartBtn: '#product-addtocart-button',
 		addToCartSuccessMsg: '[data-ui-id="message-success"]',
-
+		priceContainer : '.price-container',
+		sorter: '[id="sorter"]',
+	},
+	PRODUCT_FILTERS: {
+		filterItem: '.filter-options-item > div',
+		filterItemActive: '.filter-options-item.active',
+		item : '.item',
 	},
 	COMMON: {
 		nextBtn : '[data-role="opc-continue"]'
