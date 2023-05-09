@@ -1,5 +1,5 @@
 import { SELECTORS } from '../support/selectors'
-const { HOME_PAGE, NAVBAR} = SELECTORS
+const { HOME_PAGE, NAVBAR } = SELECTORS
 
 describe('Landing page', () => {
 	it('Verify basic components of home page are loaded and links are crawlable', () => {

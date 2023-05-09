@@ -1,18 +1,11 @@
 import { SELECTORS } from '../support/selectors'
+const buyAProduct = require('../fixtures/DATA-Buy-a-product')
 import { faker } from '@faker-js/faker/locale/ro'
 
 const { HOME_PAGE, PRODUCT, OTHER, SHIPPING, COMMON, HTML, PAYMENT, SUCCESS_PURCHASE } = SELECTORS
 
 // test data
-let email = faker.internet.email()
-let firstName = faker.name.firstName()
-let lastName = faker.name.lastName()
-let streetAddress = faker.address.streetAddress()
-let city = faker.address.city()
-let country = 'Romania'
-let postCode = faker.address.zipCode()
-let state = 'Cluj'
-let phone = faker.phone.number()
+let data = buyAProduct(faker)
 // end of test data
 
 
@@ -29,6 +22,7 @@ describe('Purchase functionalities', () => {
 		cy.get(PRODUCT.addToCartSuccessMsg).should('be.visible')
     
 		cy.get(OTHER.miniCartCounter).invoke('text').then(function(cartNumber){
+			debugger
 			expect(Number(cartNumber)).to.eq(1)
 		})
 		cy.wait('@addToCart').then(function({response}){
@@ -41,38 +35,38 @@ describe('Purchase functionalities', () => {
 
 		// fill in the info for shipping
 		cy.url().should('include', 'checkout/#shipping')
-		cy.get(SHIPPING.email).type(email)
-		cy.get(SHIPPING.firstName).type(firstName)
-		cy.get(SHIPPING.lastName).type(lastName)
-		cy.get(SHIPPING.streetAddress).type(streetAddress)
-		cy.get(SHIPPING.city).type(city)
-		cy.get(SHIPPING.country).select(country)
+		cy.get(SHIPPING.email).type(data.email)
+		cy.get(SHIPPING.firstName).type(data.firstName)
+		cy.get(SHIPPING.lastName).type(data.lastName)
+		cy.get(SHIPPING.streetAddress).type(data.streetAddress)
+		cy.get(SHIPPING.city).type(data.city)
+		cy.get(SHIPPING.country).select(data.country)
 		// once you change the country the page will render again to populate State/Province. We wait for the loader to finish
 		cy.get(OTHER.loadingSpinner).should('not.exist')
 
-		cy.get(SHIPPING.postCode).type(postCode)
+		cy.get(SHIPPING.postCode).type(data.postCode)
 		cy.get(OTHER.loadingSpinner).should('not.exist')
-		cy.get(SHIPPING.stateSelect).select(state)
-		cy.get(SHIPPING.phone).type(phone)
+		cy.get(SHIPPING.stateSelect).select(data.state)
+		cy.get(SHIPPING.phone).type(data.phone)
 		cy.get(HTML.inputRadio).first().click()
 		cy.get(COMMON.nextBtn).click()
 
 		// assert all the values entered at shipping that are correctly stored
 		cy.url().should('include', '#payment')
 		cy.get(PAYMENT.shippingDetails).first().should('be.visible').then(function(addressDetails){
-			expect(addressDetails[0].innerText).include(firstName)
-			expect(addressDetails[0].innerText).include(lastName)
-			expect(addressDetails[0].innerText).include(streetAddress)
-			expect(addressDetails[0].innerText).include(city)
-			expect(addressDetails[0].innerText).include(country)
-			expect(addressDetails[0].innerText).include(postCode)
-			expect(addressDetails[0].innerText).include(state)
-			expect(addressDetails[0].innerText).include(phone)
+			expect(addressDetails[0].innerText).include(data.firstName)
+			expect(addressDetails[0].innerText).include(data.lastName)
+			expect(addressDetails[0].innerText).include(data.streetAddress)
+			expect(addressDetails[0].innerText).include(data.city)
+			expect(addressDetails[0].innerText).include(data.country)
+			expect(addressDetails[0].innerText).include(data.postCode)
+			expect(addressDetails[0].innerText).include(data.state)
+			expect(addressDetails[0].innerText).include(data.phone)
 		})
 		cy.get(PAYMENT.placeOrderBtn).should('be.visible').click()
 
 		// assert email and registration pops up
 		cy.url().should('include', 'checkout/onepage/success/')
-		cy.get(SUCCESS_PURCHASE.createAccountAreaText).invoke('text').should('include', email)
+		cy.get(SUCCESS_PURCHASE.createAccountAreaText).invoke('text').should('include', data.email)
 	})
 })
