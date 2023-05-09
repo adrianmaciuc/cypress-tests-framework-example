@@ -1,21 +1,20 @@
 import { SELECTORS } from '../support/selectors'
-const buyAProduct = require('../fixtures/DATA-Buy-a-product')
 import { faker } from '@faker-js/faker/locale/ro'
+const buyAProduct = require('../fixtures/DATA-Buy-a-product')
 
-const { HOME_PAGE, PRODUCT, OTHER, SHIPPING, COMMON, HTML, PAYMENT, SUCCESS_PURCHASE } = SELECTORS
+const { PRODUCT, OTHER, SHIPPING, COMMON, HTML, PAYMENT, SUCCESS_PURCHASE } = SELECTORS
 
 // test data
 let data = buyAProduct(faker)
 // end of test data
 
-
 describe('Purchase functionalities', () => {
-	it('Add one item to cart and complete the order',{retries: 0}, () => {
+	it('Add one item to cart and complete the order',{retries: 0} , () => {
 		cy.visit('/')
 
 		// Open first product from home page
 		cy.intercept('GET', 'https://magento.softwaretestingboard.com/customer/section/load/**').as('addToCart')
-		cy.get(HOME_PAGE.productItemInfo).first().click()
+		cy.get(PRODUCT.productItemInfo).first().click()
 		cy.get(PRODUCT.sizeS).click()
 		cy.get(PRODUCT.colorOrange).click()
 		cy.get(PRODUCT.addToCartBtn).click()

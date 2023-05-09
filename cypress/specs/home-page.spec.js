@@ -1,5 +1,5 @@
 import { SELECTORS } from '../support/selectors'
-const { HOME_PAGE, NAVBAR } = SELECTORS
+const { HOME_PAGE, NAVBAR, PRODUCT } = SELECTORS
 
 describe('Landing page', () => {
 	it('Verify basic components of home page are loaded and links are crawlable', () => {
@@ -10,8 +10,8 @@ describe('Landing page', () => {
 			cy.wait(3500)
 		})
 
-		cy.get(HOME_PAGE.productItem).should('have.length', 6)
-		cy.get(HOME_PAGE.productItem).find(HOME_PAGE.productItemPhoto).each(function(item){
+		cy.get(PRODUCT.productItem).should('have.length', 6)
+		cy.get(PRODUCT.productItem).find(PRODUCT.productItemPhoto).each(function(item){
 			cy.request(item[0].href).its('status').should('eq', 200)
 			cy.wait(3500)
 		})
