@@ -55,7 +55,8 @@ export const SELECTORS = {
 		placeOrderBtn: '[title="Place Order"]',
 	},
 	SUCCESS_PURCHASE : {
-		createAccountAreaText: '[id="registration"] p'
+		createAccountAreaText: '[id="registration"] p',
+		x : 'x'
 	},
 	HTML : {
 		a: 'a',
