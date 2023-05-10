@@ -19,9 +19,8 @@ describe('Purchase functionalities', () => {
 		cy.get(PRODUCT.colorOrange).click()
 		cy.get(PRODUCT.addToCartBtn).click()
 		cy.get(PRODUCT.addToCartSuccessMsg).should('be.visible')
-    
+  
 		cy.get(OTHER.miniCartCounter).invoke('text').then(function(cartNumber){
-			debugger
 			expect(Number(cartNumber)).to.eq(1)
 		})
 		cy.wait('@addToCart').then(function({response}){
