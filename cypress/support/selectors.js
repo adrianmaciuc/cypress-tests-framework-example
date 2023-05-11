@@ -4,6 +4,8 @@ export const SELECTORS = {
 	// base selectors are those that you can find on all pages (exceptions may apply)
 	BASE: {
 		footerLinks: '.footer li a',
+		searchInput: '[id="search"]',
+		searchIconBtn: 'button.action.search',
 	},
 
 	// common selectors are those most commonly reused across the entire website
@@ -31,6 +33,7 @@ export const SELECTORS = {
 		productItem : '.product-item',
 		productItemPhoto: '.product-item-photo',
 		productItemInfo: '.product-item-info',
+		productItemName: '.product-item-name',
 		sizeS: '#option-label-size-143-item-167',
 		colorOrange: '#option-label-color-93-item-56',
 		addToCartBtn: '#product-addtocart-button',
