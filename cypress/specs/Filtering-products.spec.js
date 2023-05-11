@@ -1,6 +1,6 @@
 import { SELECTORS } from '../support/selectors'
 import { ROUTES } from '../support/routes'
-const filterProduct = require('../fixtures/DATA-filter-products')
+import filterProduct from '../fixtures/DATA-filter-products'
 
 const { PRODUCT_FILTERS, PRODUCT } = SELECTORS
 

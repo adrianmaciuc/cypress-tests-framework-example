@@ -1,6 +1,6 @@
 import { SELECTORS } from '../support/selectors'
 import { faker } from '@faker-js/faker/locale/ro'
-const buyAProduct = require('../fixtures/DATA-Buy-a-product')
+import buyAProduct from '../fixtures/DATA-Buy-a-product'
 
 const { PRODUCT, OTHER, SHIPPING, COMMON, HTML, PAYMENT, SUCCESS_PURCHASE } = SELECTORS
 
