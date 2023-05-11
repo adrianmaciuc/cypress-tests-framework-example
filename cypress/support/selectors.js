@@ -1,5 +1,18 @@
 
 export const SELECTORS = {
+	
+	// base selectors are those that you can find on all pages (exceptions may apply)
+	BASE: {
+		footerLinks: '.footer li a',
+	},
+
+	// common selectors are those most commonly reused across the entire website
+	COMMON: {
+		nextBtn : '[data-role="opc-continue"]',
+		loadingSpinner: '[title="Loading..."]',
+	},
+
+	// selectors may be grouped per feature
 	NAVBAR: {
 		whatsNew : '[id="ui-id-3"]',
 		women: '[id="ui-id-4"]',
@@ -9,9 +22,10 @@ export const SELECTORS = {
 		sale: '[id="ui-id-8"]',
 		navbarLinks: '.navigation .level-top > a',
 	},
+
+	// selectors may be grouped per page
 	HOME_PAGE: {
 		blocksPromoLinks : '.blocks-promo a',
-		footerLinks: '.footer li a',
 	},
 	PRODUCT : {
 		productItem : '.product-item',
@@ -29,15 +43,11 @@ export const SELECTORS = {
 		filterItemActive: '.filter-options-item.active',
 		item : '.item',
 	},
-	COMMON: {
-		nextBtn : '[data-role="opc-continue"]'
-	},
 	OTHER : {
 		miniCart: '[data-block="minicart"]', 
 		miniCartCounter: '[data-block="minicart"] .counter .counter-number',
 		miniCartSubTotal: '.subtotal .price-container',
 		miniCartDropDownProceedToCheckout: '[id="top-cart-btn-checkout"]',
-		loadingSpinner: '[title="Loading..."]',
 	},
 	SHIPPING: {
 		email: '#shipping #customer-email',
