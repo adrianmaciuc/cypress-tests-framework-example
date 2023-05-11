@@ -1,6 +1,6 @@
 import { SELECTORS } from '../support/selectors'
 import { ROUTES } from '../support/routes'
-const filterProducts = require('../fixtures/DATA-filter-products')
+const filterProduct = require('../fixtures/DATA-filter-products')
 
 const { PRODUCT_FILTERS, PRODUCT } = SELECTORS
 
@@ -8,7 +8,7 @@ const { PRODUCT_FILTERS, PRODUCT } = SELECTORS
 describe('Filtering functionalities', () => {
 	context('Filter functionalities', () => {
 		// Test data. Mainly fetched or generated in context or before hooks to be used on all tests from the test suite
-		let data = filterProducts()
+		let data = filterProduct()
 		// End of test data
 
 		it('Filter by style and price', () => {
