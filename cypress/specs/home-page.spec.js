@@ -19,7 +19,7 @@ describe('Landing page', () => {
 
 	it('Navigation and Footer links', () => {
 		cy.visit('/')
-		cy.get(HOME_PAGE.footerLinks).each(function(item){
+		cy.get(BASE.footerLinks).each(function(item){
 			cy.request(item[0].href).its('status').should('eq', 200)
 			cy.wait(3500)
 		})

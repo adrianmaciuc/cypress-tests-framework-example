@@ -1,4 +1,4 @@
-const filterProduct = () => {
+export const filterProduct = () => {
 	const data = {
 		category1: 'Style',
 		category2: 'Price',
@@ -7,5 +7,3 @@ const filterProduct = () => {
 	}
 	return data
 }
-
-module.exports = filterProduct 
