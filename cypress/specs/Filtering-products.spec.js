@@ -6,9 +6,9 @@ const { PRODUCT_FILTERS, PRODUCT } = SELECTORS
 
 
 describe('Filtering functionalities', () => {
-	context('Purchase functionalities', () => {
+	context('Filter functionalities', () => {
 		// Test data. Mainly fetched or generated in context or before hooks to be used on all tests from the test suite
-		let data = filterProducts(faker)
+		let data = filterProducts()
 		// End of test data
 
 		it('Filter by style and price', () => {

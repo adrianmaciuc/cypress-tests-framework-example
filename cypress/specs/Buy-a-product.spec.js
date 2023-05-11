@@ -14,8 +14,10 @@ describe('Purchase functionalities', () => {
 		it('Add one item to cart and complete the order',{retries: 0} , () => {
 			cy.visit('/')
 
-			// Open first product from home page
+			// We use intercept to confirm at a backend level that the item is added to cart
 			cy.intercept('GET', 'https://magento.softwaretestingboard.com/customer/section/load/**').as('addToCart')
+			
+			// Open first product from home page
 			cy.get(PRODUCT.productItemInfo).first().click()
 			cy.get(PRODUCT.sizeS).click()
 			cy.get(PRODUCT.colorOrange).click()
