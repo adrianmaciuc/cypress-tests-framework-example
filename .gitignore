@@ -1,8 +1,25 @@
-NODE_MODULES/
-reports/
-videos/
-screenshots/
-*.mp4
-*.jpg
-*.png
+# env files
 .env
+
+# Test screenshots and videos
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+
+# Node.js dependencies
+node_modules/
+
+# Environment configuration files
+.env
+
+# IDE files
+.vscode/
+.idea/
+
+# Test reports and logs
+reports/
+mochawesome-report/
+
+# Other temporary or generated files
+*.log
+*.swp
