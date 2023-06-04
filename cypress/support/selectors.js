@@ -29,6 +29,8 @@ export const SELECTORS = {
 	HOME_PAGE: {
 		blocksPromoLinks : '.blocks-promo a',
 	},
+
+	// selectors may be grouped per component 
 	PRODUCT : {
 		productItem : '.product-item',
 		productItemPhoto: '.product-item-photo',
