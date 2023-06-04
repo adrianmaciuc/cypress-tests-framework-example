@@ -7,7 +7,6 @@ module.exports = defineConfig({
 	e2e: {
 		baseUrl: baseUrl,
 		specPattern: '**/specs/*.spec.js',
-		excludeSpecPattern: '**/devSpecs/*.spec.js',
 		supportFile: 'cypress/support/index.js',
 		defaultCommandTimeout: 15000,
     
