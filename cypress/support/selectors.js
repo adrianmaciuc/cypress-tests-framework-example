@@ -66,7 +66,7 @@ export const SELECTORS = {
 		postCode: '[name="postcode"]'
 	},
 	PAYMENT: {
-		shippingDetails: '.shipping-information-content',
+		shippingDetails: '.ship-to .shipping-information-content',
 		placeOrderBtn: '[title="Place Order"]',
 	},
 	SUCCESS_PURCHASE : {

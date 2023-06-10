@@ -55,7 +55,7 @@ describe('Purchase functionalities', () => {
 
 			// assert all the values entered at shipping that are correctly stored
 			cy.url().should('include', '#payment')
-			cy.get(PAYMENT.shippingDetails).first().should('be.visible').then(function(addressDetails){
+			cy.get(PAYMENT.shippingDetails).should('be.visible').then(function(addressDetails){
 				expect(addressDetails[0].innerText).include(data.firstName)
 				expect(addressDetails[0].innerText).include(data.lastName)
 				expect(addressDetails[0].innerText).include(data.streetAddress)
