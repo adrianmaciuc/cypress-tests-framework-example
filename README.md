@@ -1,10 +1,10 @@
-👋 Hi there! Welcome to the Cypress Tests Framework Example!
+Welcome to the Cypress Tests Framework Example!
 
-👨‍💻 This project, created by Adrian Maciuc - https://www.martioli.com - showcases a Cypress-based testing framework that tests an e-commerce website. The main goal is to provide end-to-end test coverage for https://magento.softwaretestingboard.com/.
+This project, created by Adrian Maciuc - https://www.martioli.com - showcases a Cypress-based testing framework that tests an e-commerce website. The main goal is to provide end-to-end test coverage for https://magento.softwaretestingboard.com/.
 
 ## 📝 Overview
 
-👀 This project includes:
+This project includes:
 
 1️⃣ Tests for the website 
 
@@ -19,7 +19,7 @@
 6️⃣ Uses ESLint for code quality and style and git for version control
 
 
-## 📋 Specifications and Design
+## Specifications and Design
 
 📌 All the specs in this repository are written exclusively to cover the testing of the website mentioned above.
 
@@ -29,7 +29,7 @@
 
 📌 We have adopted a similar design logic to the Page Object Model (POM). Refer to the files `support/selectors.js` and `support/routes.js` to understand better.
 
-## 🎯 Testing approach
+## Testing approach
 
 📌 Modular test logic and Reusable selectors 
 
@@ -38,11 +38,11 @@
 📌 Avoid as much as possible implicit waits and use of contains method
 
 
-## 📊 Testing Reports
+## Testing Reports
 
 💻 Github Actions will be triggered with each commit pushed to the repository, and the resulting Mochawesome reports can be found in the `/reports` folder or as artifacts on Github Actions.
 
-## 🔧 Installation 
+## Installation 
 
 🚀 To get started with this project, simply follow these steps:
 
