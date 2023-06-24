@@ -7,9 +7,7 @@ const { PRODUCT, OTHER, SHIPPING, COMMON, HTML, PAYMENT, SUCCESS_PURCHASE } = SE
 
 describe('Purchase functionalities', () => {
 	context('Purchase functionalities', () => {
-		// Test data. Mainly fetched or generated in context or before hooks to be used on all tests from the test suite
-		let data = buyAProduct(faker)
-		// End of test data
+		let testData = buyAProduct(faker)
 
 		it('Add one item to cart and complete the order' , () => {
 
@@ -45,19 +43,19 @@ describe('Purchase functionalities', () => {
 			cy.url().should('include', 'checkout/#shipping')
 
 			// fill in the info for shipping
-			cy.get(SHIPPING.email).type(data.email)
-			cy.get(SHIPPING.firstName).type(data.firstName)
-			cy.get(SHIPPING.lastName).type(data.lastName)
-			cy.get(SHIPPING.streetAddress).type(data.streetAddress)
-			cy.get(SHIPPING.city).type(data.city)
-			cy.get(SHIPPING.country).select(data.country)
+			cy.get(SHIPPING.email).type(testData.email)
+			cy.get(SHIPPING.firstName).type(testData.firstName)
+			cy.get(SHIPPING.lastName).type(testData.lastName)
+			cy.get(SHIPPING.streetAddress).type(testData.streetAddress)
+			cy.get(SHIPPING.city).type(testData.city)
+			cy.get(SHIPPING.country).select(testData.country)
 
 			// once you change the country the page will render again to populate State/Province. We wait for the loader to finish
 			cy.get(COMMON.loadingSpinner).should('not.exist')
-			cy.get(SHIPPING.postCode).type(data.postCode)
+			cy.get(SHIPPING.postCode).type(testData.postCode)
 			cy.get(COMMON.loadingSpinner).should('not.exist')
-			cy.get(SHIPPING.stateSelect).select(data.state)
-			cy.get(SHIPPING.phone).type(data.phone)
+			cy.get(SHIPPING.stateSelect).select(testData.state)
+			cy.get(SHIPPING.phone).type(testData.phone)
 			cy.get(HTML.inputRadio).first().click()
 
 			cy.get(COMMON.nextBtn).click()
@@ -66,21 +64,21 @@ describe('Purchase functionalities', () => {
 
 			// assert all the values entered at shipping are correctly saved at payment page
 			cy.get(PAYMENT.shippingDetails).should('be.visible').then(function(addressDetails){
-				expect(addressDetails[0].innerText).include(data.firstName)
-				expect(addressDetails[0].innerText).include(data.lastName)
-				expect(addressDetails[0].innerText).include(data.streetAddress)
-				expect(addressDetails[0].innerText).include(data.city)
-				expect(addressDetails[0].innerText).include(data.country)
-				expect(addressDetails[0].innerText).include(data.postCode)
-				expect(addressDetails[0].innerText).include(data.state)
-				expect(addressDetails[0].innerText).include(data.phone)
+				expect(addressDetails[0].innerText).include(testData.firstName)
+				expect(addressDetails[0].innerText).include(testData.lastName)
+				expect(addressDetails[0].innerText).include(testData.streetAddress)
+				expect(addressDetails[0].innerText).include(testData.city)
+				expect(addressDetails[0].innerText).include(testData.country)
+				expect(addressDetails[0].innerText).include(testData.postCode)
+				expect(addressDetails[0].innerText).include(testData.state)
+				expect(addressDetails[0].innerText).include(testData.phone)
 			})
 			cy.get(PAYMENT.placeOrderBtn).should('be.visible').click()
 
 			cy.url().should('include', 'checkout/onepage/success/')
-			
+
 			// assert email and registration pops up
-			cy.get(SUCCESS_PURCHASE.createAccountAreaText).invoke('text').should('include', data.email)
+			cy.get(SUCCESS_PURCHASE.createAccountAreaText).invoke('text').should('include', testData.email)
 		})
 	})
 })
