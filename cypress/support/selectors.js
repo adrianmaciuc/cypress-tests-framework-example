@@ -38,6 +38,7 @@ export const SELECTORS = {
 		productItemName: '.product-item-name',
 		sizeS: '#option-label-size-143-item-167',
 		colorOrange: '#option-label-color-93-item-56',
+		colorBlue: '#option-label-color-93-item-50',
 		addToCartBtn: '#product-addtocart-button',
 		addToCartSuccessMsg: '[data-ui-id="message-success"]',
 		priceContainer : '.price-container',
