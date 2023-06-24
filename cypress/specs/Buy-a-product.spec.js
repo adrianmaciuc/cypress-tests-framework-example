@@ -6,7 +6,7 @@ const { PRODUCT, OTHER, SHIPPING, COMMON, HTML, PAYMENT, SUCCESS_PURCHASE } = SE
 
 
 describe('Purchase functionalities', () => {
-	context('Purchase functionalities', () => {
+	context('Orders', () => {
 		let testData = buyAProduct(faker)
 
 		it('Add one item to cart and complete the order' , () => {
